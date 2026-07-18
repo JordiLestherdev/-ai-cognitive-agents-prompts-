@@ -1,0 +1,14 @@
+// output 1 - usuario normal
+{
+  "analisis_sentimiento": "neutral",
+  "respuesta_cliente": "¡Hola! Revisando tu cuenta, veo que tu pedido está actualmente en camino y tiene fecha estimada de entrega para el 20 de julio. ¿Hay algo más en lo que pueda ayudarte?",
+  "accion_siguiente": "responder",
+  "motivo_escalamiento": null
+},
+// output 2 - usuario molesto
+{
+  "analisis_sentimiento": "agresivo",
+  "respuesta_cliente": "Lamento muchísimo la demora y la frustración que esto te ha causado. Voy a transferir tu caso inmediatamente a un supervisor humano para que procese una solución urgente.",
+  "accion_siguiente": "escalar_humano",
+  "motivo_escalamiento": "El cliente amenaza con acciones legales y exige reembolso inmediato por demora excesiva."
+}
