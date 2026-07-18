@@ -42,4 +42,4 @@ Agentes diseñados para maximizar el ticket promedio y optimizar la rotación de
 Prompts especializados en el análisis de sentimiento y orquestación de transiciones seguras entre la IA y los operadores humanos.
 
 * 🚦 [Enrutador de Escalamiento por Sentimiento](./human-in-the-loop/sentiment-escalation-router.md): Actúa como "semáforo inteligente". Analiza el tono del cliente, el historial de fallos del bot y el segmento (ej. VIP) para derivar la conversación a un operador humano antes de generar una mala experiencia.
-* 
+  
