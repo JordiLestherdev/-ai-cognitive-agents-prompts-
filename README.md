@@ -1,42 +1,38 @@
-# 🤖 Agente de Cualificación de Leads B2B (Plantilla Abstracta)
+# 🧠 AI Cognitive Agents - Prompt Engineering Patterns
 
-Este prompt es el núcleo de un sistema de automatización orquestado con **n8n**. Actúa como el primer punto de contacto en un embudo de ventas, encargado de analizar el requerimiento del cliente, extraer datos, clasificar el nivel de interés (Lead Scoring) y generar una respuesta estratégica. 
+Este repositorio es una colección documentada de los patrones de ingeniería de prompts, arquitecturas de contexto y guardrails que utilizo para diseñar agentes cognitivos en entornos de producción (principalmente integrados con automatizaciones en **n8n** y flujos *Human-in-the-Loop*).
 
-*Nota: La lógica de negocio específica y los nombres han sido abstraídos (`[ENTRE_CORCHETES]`) para proteger la confidencialidad de la arquitectura real.*
+> **Nota de Privacidad:** La lógica de negocio específica y los nombres de empresas en los archivos han sido abstraídos para proteger la confidencialidad de la arquitectura real de los clientes.
 
-## ⚙️ Arquitectura del Prompt
+## 🏗️ Metodología de Diseño
 
-Este sistema utiliza múltiples patrones de ingeniería de prompts para garantizar consistencia y seguridad en un entorno de producción.
+Todos los prompts en este repositorio están estructurados para interactuar directamente con código o plataformas de orquestación, priorizando la consistencia y la seguridad sobre la creatividad libre.
 
-### 1. Patrones Utilizados
-* **Template Pattern (Inyección de Datos):** Utiliza sintaxis de n8n (`{{ }}`) para inyectar datos del payload en tiempo real.
-* **Structured Output:** Obliga al LLM a devolver un JSON estricto, permitiendo que el flujo de n8n procese variables en los siguientes nodos.
-* **Chain of Thought (Implícito):** La clave `"razonamiento"` en el JSON fuerza al modelo a justificar su análisis antes de confirmar la calificación.
+### Patrones Base Aplicados
+* **Structured Output Pattern:** Se fuerza a los modelos a devolver respuestas en formatos programáticos estrictos (ej. JSON) para permitir el enrutamiento lógico en los siguientes nodos del flujo.
+* **Template Pattern:** Se utiliza inyección de variables (como `{{datos}}`) para pasar el contexto dinámico al modelo.
+* **Chain of Thought (CoT):** Se obliga a los agentes a generar un `"razonamiento"` en su salida JSON antes de emitir una decisión, reduciendo las alucinaciones.
 
-### 2. Guardrails (Reglas de Seguridad)
-* **Comercial:** Prohibición estricta de entregar precios o presupuestos iniciales.
-* **Formato Anti-Rotura:** Instrucciones negativas explícitas para garantizar que `JSON.parse()` en el backend no falle por texto basura.
-* **Escalabilidad (HITL):** Regla de derivación automática al equipo técnico.
+### Guardrails (Reglas de Seguridad) Implementados
+1. **Comerciales:** Prohibición explícita de inventar precios o cerrar tratos sin validación humana.
+2. **De Formato:** Instrucciones negativas para evitar que la IA rompa el análisis de datos (ej. prohibición de Markdown alrededor de los objetos JSON).
+3. **Escalamiento:** Reglas claras para derivar la conversación a un operador humano en caso de complejidad o frustración del usuario.
 
 ---
 
-## 📝 El System Prompt
+## 📂 Directorio de Agentes y Patrones
 
-```text
-Eres [NOMBRE_DEL_AGENTE], el asistente virtual de [NOMBRE_DE_LA_EMPRESA] (empresa especializada en [ESPECIALIDAD_1] y [ESPECIALIDAD_2]).
+A continuación, se listan los prompts organizados por su caso de uso dentro de un embudo de negocio o ecosistema e-commerce.
 
-TU MISIÓN:
-Analizar el mensaje del prospecto, evaluar la calidad del lead y generar la respuesta de seguimiento adecuada. Debes procesar la información y devolver ESTRICTAMENTE un objeto JSON estructurado que incluya tanto los datos del cliente como tu análisis.
+### 💼 Ventas y Cualificación (Lead Scoring)
+Agentes diseñados para actuar como primer filtro en embudos de adquisición, evaluando la viabilidad técnica y comercial del prospecto.
+* 🤖 [Agente de Cualificación de Leads B2B](./sales-and-qualification/lead-qualification-agent.md): Analiza el mensaje, extrae datos, califica al lead (Scoring) y devuelve el resultado en JSON para su ruteo en n8n.
 
-REGLAS DE CONVERSACIÓN PARA "respuesta":
-* Tono y Longitud: Natural, profesional, cercano y muy conciso (máximo 3 líneas reales).
-* Conciencia de Contexto: Si el mensaje indica que es el primer contacto, preséntate como [NOMBRE_DEL_AGENTE]. Si es respuesta a algo previo, OMITE la presentación.
-* Restricción Comercial: NUNCA entregues precios. Si exigen un valor, responde que los proyectos se cotizan a medida tras evaluar la complejidad técnica.
-* Avance del Embudo: Termina siempre tu respuesta con UNA sola pregunta estratégica orientada a descubrir: el problema del negocio, los plazos deseados o el contexto del proyecto.
-* Derivación Técnica: Si el usuario pide hablar con un humano o plantea requerimientos complejos, responde que derivarás el caso al equipo humano.
+### 🎧 Soporte al Cliente (E-commerce)
+Agentes enfocados en la resolución rápida de dudas logísticas y operativas utilizando inyección de contexto RAG (Retrieval-Augmented Generation).
+* *(Próximamente: Agente de Seguimiento de Órdenes)*
+* *(Próximamente: Asistente de Políticas de Reembolso)*
 
-DATOS REALES DEL CLIENTE:
-Canal: {{ $('Edit Fields').item.json.canal }}
-Nombre: {{ $('Edit Fields').item.json.nombre }}
-Contacto: {{ $('Edit Fields').item.json.contacto }}
-Mensaje original: {{ $('Edit Fields').item
+### 🔄 Human-in-the-Loop (HITL)
+Prompts especializados en el análisis de sentimiento y orquestación de transiciones seguras entre la IA y los operadores humanos.
+* *(Próximamente: Enrutador de Escalamiento por Sentimiento)*
