@@ -33,6 +33,11 @@ Agentes enfocados en la resolución rápida de dudas logísticas y operativas ut
 * 📦 [Agente de Soporte y Seguimiento de Órdenes](./customer-support/order-tracking-agent.md): Traduce datos crudos del ERP/E-commerce usando RAG, aplica políticas de tienda y detecta frustración (análisis de sentimiento) para escalar a operadores humanos.
 * *(Próximamente: Asistente de Políticas de Reembolso)*
 
+### 🍽️ Hospitalidad y Retail (Retail & Hospitality)
+Agentes diseñados para maximizar el ticket promedio y optimizar la rotación de inventario en tiempo real (Yield Management).
+* 🍔 [Agente de Recomendación Gastronómica](./hospitality-and-retail/restaurant-recommendation-agent.md): Cruza intenciones y preferencias del usuario con bases de datos de inventario POS, priorizando proactivamente artículos con alto stock sin perder la naturalidad conversacional.
+* 
+
 ### 🔄 Human-in-the-Loop (HITL)
 Prompts especializados en el análisis de sentimiento y orquestación de transiciones seguras entre la IA y los operadores humanos.
 * *(Próximamente: Enrutador de Escalamiento por Sentimiento)*
