@@ -30,7 +30,7 @@ Agentes diseñados para actuar como primer filtro en embudos de adquisición, ev
 
 ### 🎧 Soporte al Cliente (E-commerce)
 Agentes enfocados en la resolución rápida de dudas logísticas y operativas utilizando inyección de contexto RAG (Retrieval-Augmented Generation).
-* *(Próximamente: Agente de Seguimiento de Órdenes)*
+* 📦 [Agente de Soporte y Seguimiento de Órdenes](./customer-support/order-tracking-agent.md): Traduce datos crudos del ERP/E-commerce usando RAG, aplica políticas de tienda y detecta frustración (análisis de sentimiento) para escalar a operadores humanos.
 * *(Próximamente: Asistente de Políticas de Reembolso)*
 
 ### 🔄 Human-in-the-Loop (HITL)
