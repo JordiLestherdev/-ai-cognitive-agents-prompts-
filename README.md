@@ -31,12 +31,12 @@ Agentes diseñados para actuar como primer filtro en embudos de adquisición, ev
 ### 🎧 Soporte al Cliente (E-commerce)
 Agentes enfocados en la resolución rápida de dudas logísticas y operativas utilizando inyección de contexto RAG (Retrieval-Augmented Generation).
 * 📦 [Agente de Soporte y Seguimiento de Órdenes](./customer-support/order-tracking-agent.md): Traduce datos crudos del ERP/E-commerce usando RAG, aplica políticas de tienda y detecta frustración (análisis de sentimiento) para escalar a operadores humanos.
-* *(Próximamente: Asistente de Políticas de Reembolso)*
+* 🔄 [Asistente de Políticas de Reembolso](./customer-support/refund-policy-assistant.md): Motor lógico que evalúa reglas de negocio estrictas (tiempos de compra, categorías excluidas) para aprobar, rechazar educadamente o escalar devoluciones de productos.
+)*
 
 ### 🍽️ Hospitalidad y Retail (Retail & Hospitality)
 Agentes diseñados para maximizar el ticket promedio y optimizar la rotación de inventario en tiempo real (Yield Management).
 * 🍔 [Agente de Recomendación Gastronómica](./hospitality-and-retail/restaurant-recommendation-agent.md): Cruza intenciones y preferencias del usuario con bases de datos de inventario POS, priorizando proactivamente artículos con alto stock sin perder la naturalidad conversacional.
-* 
 
 ### 🔄 Human-in-the-Loop (HITL)
 Prompts especializados en el análisis de sentimiento y orquestación de transiciones seguras entre la IA y los operadores humanos.
