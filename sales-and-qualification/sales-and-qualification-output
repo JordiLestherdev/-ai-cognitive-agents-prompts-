@@ -1,0 +1,9 @@
+{
+  "canal": "whatsapp",
+  "nombre": "Carlos",
+  "contacto": "+5691234XXXX",
+  "mensaje_original": "Hola, necesito automatizar un flujo de atención urgente.",
+  "respuesta": "¡Hola Carlos! Soy [Nombre del Agente]. Suena como un proyecto donde podemos aportar mucho valor. ¿En qué plataforma o canal están recibiendo actualmente esas consultas?",
+  "calificacion": "caliente",
+  "razonamiento": "El prospecto tiene una necesidad clara alineada a la automatización y declara urgencia en la implementación."
+}
